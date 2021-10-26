@@ -1,29 +1,35 @@
 <template>
-  <div id="Directory">
+  <div id="landing">
     <div id="Back">
-      <router-link to="/" class="backbtn">Back</router-link>
+      <router-link to="/directory" class="backbtn">Back</router-link>
     </div>
-    <div v-for="list, index in list" :key="index">
-    <h3> {{ list.title }}</h3>
-    <h4><router-link :to="{name: 'landing', params: { id: list.id, url: list.jsonUrl }}" class="links">view</router-link></h4>
+    <div>
+      {{ $route.params.url }}
+    </div>
+    <div v-for="business, index in business" :key="index">
+    <h3> {{ business.title }}</h3>
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
-export default {
-  name: 'Directory',
 
+export default {
+  name: 'landing',
+  props: {
+    url:String
+  },
   data () {
     return {
-      list: []
+      business: []
     }
   },
   created() {
   // GET request using axios with error handling
-  axios.get("https://visit-melchester.destinationcoreone.com/businesses.json?token=BDFw4tCXJWiYslbVyzUdeOGDP5FBDL1t")
-    .then(response => this.list = response.data.data)
+  newurl = this.props.url,
+  axios.get(newurl)
+    .then(response => this.business = response.data)
     .catch(error => {
       this.errorMessage = error.message;
       console.error("There was an error!", error);

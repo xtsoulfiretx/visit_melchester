@@ -1,13 +1,32 @@
 <template>
   <div id="Homepage">
-  When you have a great story about how your product or service was built to change lives, share it. The "About Us" page is a great place for it to live, too. Good stories humanize your brand, providing context and meaning for your product. What’s more, good stories are sticky -- which means people are more likely to connect with them and pass them on.
+    <div v-for="info, index in info" :key="index">
+    <p> {{ info.title }}</p>
+    </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-  name: 'Homepage'
+  name: 'Homepage',
+
+  data () {
+    return {
+      info: []
+    }
+  },
+  created() {
+  // GET request using axios with error handling
+  axios.get("https://visit-melchester.destinationcoreone.com/home.json?token=BDFw4tCXJWiYslbVyzUdeOGDP5FBDL1t")
+    .then(response => this.info = response.data.data)
+    .catch(error => {
+      this.errorMessage = error.message;
+      console.error("There was an error!", error);
+    });
+  }
 }
+
 </script>
 <!-- styling for the component -->
 <style>

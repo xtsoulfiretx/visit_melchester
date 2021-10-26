@@ -8,17 +8,32 @@ import App from './App'
 import VueRouter from 'vue-router'
 //Import Axios
 import axios from 'axios'
+import VueAxios from 'vue-axios'
 //import the Homepage component
 import Homepage from './components/Homepage'
 //import the Directory component
 import Directory from './components/Directory'
-//tell vue to use the router
-Vue.use(VueRouter)
+import landing from './components/landing'
+//tell vue to use the router & Axios
+window.axios = axios
+axios.defaults.baseURL = 'http://127.0.0.1:3333'
+Vue.prototype.$https = axios
+Vue.use(VueRouter, VueAxios)
 //define your routes
 const routes = [
 //define the root url of the application.
-{ path: '/', component: Homepage },
-{ path: '/directory', component: Directory}
+{ path: '/',
+  component: Homepage 
+},
+{ path: '/directory',
+  component: Directory
+},
+{ path: '/landing/:id',
+  name: 'landing', 
+  id:'list', 
+  props: true,
+  component: landing
+},
 ]
 
 
