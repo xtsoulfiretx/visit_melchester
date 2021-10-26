@@ -3,11 +3,8 @@
     <div id="Back">
       <router-link to="/directory" class="backbtn">Back</router-link>
     </div>
-    <div>
-      {{ $route.params.url }}
-    </div>
     <div v-for="business, index in business" :key="index">
-    <h3> {{ business.title }}</h3>
+    <h3> {{ business }}</h3>
     </div>
   </div>
 </template>
@@ -17,9 +14,6 @@ import axios from 'axios';
 
 export default {
   name: 'landing',
-  props: {
-    url:String
-  },
   data () {
     return {
       business: []
@@ -27,7 +21,7 @@ export default {
   },
   created() {
   // GET request using axios with error handling
-  newurl = this.props.url,
+  var newurl = this.$route.params.url;
   axios.get(newurl)
     .then(response => this.business = response.data)
     .catch(error => {
