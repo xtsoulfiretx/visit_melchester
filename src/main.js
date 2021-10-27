@@ -42,6 +42,12 @@ const routes = [
 }
 ]
 
+Vue.filter('stripHTML', function (value) {
+  const div = document.createElement('div')
+  div.innerHTML = value
+  const text = div.textContent || div.innerText || ''
+  return text
+});
 
 // Create the router instance and pass the `routes` option
 // You can pass in additional options here, but let's

@@ -3,17 +3,17 @@
     <div id="Back">
       <router-link to="/" class="backbtn">Back</router-link>
     </div>
-    <div class="list-container" v-for="list, index in list" :key="index">
+    <div class="list-container" v-for="business, index in list" :key="index">
       <div class="list-item-container">
-        <h3 class="item-title"> {{ list.title }}</h3>
+        <h3 class="item-title"> {{ business.title }}</h3>
         <div class="Category-container">
-          <h4 class="item-category"> Category: {{ list.category }} </h4>
+          <h4 class="item-category"> Category: {{ business.category }} </h4>
         </div>
         <div class="image-container">
-          <img :src="list.mainImage" class="list-item-image">
+          <img :src="business.mainImage" class="list-item-image">
         </div>
-        <h4 class="item-description"> {{ list.previewText }} </h4>
-        <h4 class="link-container"><router-link :to="{name: 'landing', params: { id: list.id, url: list.jsonUrl }}" class="links">view</router-link></h4>
+        <h4 class="item-description"> {{ business.previewText | stripHTML}} </h4>
+        <h4 class="link-container"><router-link :to="{name: 'landing', params: { id: business.id, url: business.jsonUrl }}" class="links">view</router-link></h4>
       </div>
     </div>
   </div>
