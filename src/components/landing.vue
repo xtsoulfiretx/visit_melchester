@@ -4,7 +4,9 @@
       <router-link to="/directory" class="backbtn">Back</router-link>
     </div>
     <div v-for="business, index in business" :key="index">
-    <h3> {{ business }}</h3>
+      <div class="landing-page-container">
+        <h3> {{ business }}</h3>
+      </div>
     </div>
   </div>
 </template>
@@ -33,13 +35,17 @@ export default {
 </script>
 <!-- styling for the component -->
 <style>
-#about {
+#landing {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .backbtn {
   color: #000;

@@ -13,7 +13,10 @@ import VueAxios from 'vue-axios'
 import Homepage from './components/Homepage'
 //import the Directory component
 import Directory from './components/Directory'
+//Import the Landing component
 import landing from './components/landing'
+// Import the Page not found component
+import PageNotFound from './components/PageNotFound'
 //tell vue to use the router & Axios
 window.axios = axios
 axios.defaults.baseURL = 'http://127.0.0.1:3333'
@@ -34,6 +37,9 @@ const routes = [
   props: true,
   component: landing
 },
+{ path: "*",
+ component: PageNotFound 
+}
 ]
 
 

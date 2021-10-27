@@ -3,6 +3,10 @@
   <div class="nav-container">
     <router-link v-bind:to="'/'">Home</router-link>
     <router-link v-bind:to="'/directory'">Business Directory</router-link>
+    <router-link v-bind:to="'/404'">Events</router-link>
+    <router-link v-bind:to="'/404'">Offers</router-link>
+    <router-link v-bind:to="'/404'">Blog</router-link>
+    <router-link v-bind:to="'/404'">Community</router-link>
   </div>
   <router-view></router-view>
   </div>
@@ -22,7 +26,13 @@ export default {
   text-align: center;
 }
 body {
-  margin: 0;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
 }
 a {
   color: #fff;
