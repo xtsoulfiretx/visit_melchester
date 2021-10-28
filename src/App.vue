@@ -6,7 +6,7 @@
     <router-link v-bind:to="'/404'">Events</router-link>
     <router-link v-bind:to="'/404'">Offers</router-link>
     <router-link v-bind:to="'/404'">Blog</router-link>
-    <router-link v-bind:to="'/404'">Community</router-link>
+    <router-link class="last-link" v-bind:to="'/404'">Community</router-link>
   </div>
   <router-view></router-view>
   </div>
@@ -38,16 +38,26 @@ body {
 a {
   color: #fff;
   padding: 10px;
-
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
 .nav-container {
-    height: 2rem;
-    background-color: #000;
-    color: #fff;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    font-family: dco-heading-font,sans-serif;
-    text-transform: uppercase;
-    font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  height: 2rem;
+  background-color: #000;
+  color: #fff;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  font-family: dco-heading-font,sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.last-link{
+  margin-right: 2rem;
 }
 </style>

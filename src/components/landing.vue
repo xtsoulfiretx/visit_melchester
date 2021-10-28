@@ -1,26 +1,28 @@
 <template>
   <div id="landing">
-    <div class="business-detail-container">
-      <div class="business-name-container">
-        <h1 class="business-name">{{ details.title }}</h1>
-      </div>
-      <div class="detail-image-container">
-        <img :src="details.mainImage" class="detail-image">
-      </div>
-      <div class="additional-info-container">
-        <div class="description-container">
-          <h3> {{ details.body | stripHTML }} </h3>
+    <div class="business-details">
+      <div class="business-detail-container">
+        <div class="image-open">
+          <div class="detail-image-container">
+            <img :src="details.mainImage" class="detail-image">
+          </div>
+          <div class="opening-times-container">
+              <h4> {{ details.openingHours | stripHTML }} </h4>
+          </div>
         </div>
-        <div class="get-in-touch">
-          <h4>Get in touch: <br> Phone: {{ details.telephone }} <br> Email: {{ details.email }} <br> Website: {{ details.website }}</h4>
-        </div>
-        <div class="opening-times-container">
-          <h4> {{ details.openingHours | stripHTML }} </h4>
+        <div class="additional-info-container">
+          <div class="business-name-container">
+            <h1 class="business-name">{{ details.title }}</h1>
+          </div>
+          <div class="description-container">
+            <h3> {{ details.body | stripHTML }} </h3>
+          </div>
+          <div class="get-in-touch">
+            <h4>Get in touch: <br> Phone: {{ details.telephone }} <br> Email: {{ details.email }} <br> Website: {{ details.website }}</h4>
+          </div>
         </div>
       </div>
-    </div>
-    <div id="BackL">
-      <router-link to="/directory" class="backbtn">Back</router-link>
+        <router-link to="/directory" class="backbtnL">Back</router-link>
     </div>
   </div>
 </template>
@@ -60,21 +62,30 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  height: 100vh;
 }
-#BackL{
-  margin-top: 20px;
+.business-details {
+  height: 100vh;
+  background-color: #212529;
 }
 .business-detail-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  background: #212529;
+  color: #fff;
+  justify-content: space-between; 
 }
 .business-name-container {
   width: 100%;
+  background-color: #ff013c;
 }
-.detail-image-container {
+.image-open {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   width: 50%;
-  margin: 20px;
+  border-bottom: 3px solid #ff013c;
 }
 .detail-image {
   width: 100%;
@@ -85,10 +96,34 @@ export default {
   flex-direction: column;
   flex-wrap: wrap;
   width: 40%;
+  flex-grow: 2;
+  align-content: space-between;
+  justify-content: space-between;
+  border-left: 3px solid #ff013c;
+  border-bottom: 3px solid #ff013c;
 }
-
-.backbtn {
-  color: #000;
+.description-container {
+  padding: 5px;
+}
+.get-in-touch {
+  font-size: 1.5rem;
+}
+.opening-times-container {
+  width: 100%;
+  border-top: 3px solid #ff013c;
+}
+.backbtnL {
+  display: block;
+  background: #ff013c;
+  font-size: 1.5rem;
+  width: 100%!important;
+  text-decoration: none;
+  color: #fff!important;
+  padding: 0;
+}
+.backbtnL:hover {
+  text-decoration: underline;
+  background-color: #bf002d;
 }
 .links {
   color: #000;

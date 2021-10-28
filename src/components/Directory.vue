@@ -12,8 +12,8 @@
         <div class="image-container">
           <img :src="business.mainImage" class="list-item-image">
         </div>
-        <h4 class="item-description"> {{ business.previewText | stripHTML}} </h4>
-        <h4 class="link-container"><router-link :to="{name: 'landing', params: { id: business.id, url: business.jsonUrl }}" class="links">view</router-link></h4>
+        <h4 class="item-description fancy-scroll"> {{ business.previewText | stripHTML}} </h4>
+        <h4 class="link-container"><router-link :to="{name: 'landing', params: { id: business.id, url: business.jsonUrl }}" class="links">View</router-link></h4>
       </div>
     </div>
   </div>
@@ -54,7 +54,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background-color: #212529;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -62,12 +62,19 @@ export default {
 }
 #Back {
   width: 100%;
+  margin-top: 20px;
 }
 .backbtn {
   background: #ff013c;
   font-size: 1.5rem;
   border-radius: 5px;
   padding: 10px 20px;
+  text-decoration: none;
+  color: #fff!important
+}
+.backbtn:hover {
+  text-decoration: underline;
+  background-color: #bf002d;
 }
 .list-container {
   width: 30%;
@@ -83,6 +90,7 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   background: #212529;
+  border: 2px solid #ff013c;
 }
 .item-title {
   width: 100%;
@@ -103,6 +111,7 @@ export default {
 }
 .image-container {
   width: 450px;
+  height: 200px;
   border: 1px solid #000;
 }
 .list-item-image {
@@ -114,7 +123,34 @@ export default {
   padding: 10px;
   margin-bottom: 10px;
   font-weight: 500;
+  height: 150px;
+  overflow-y: scroll;
 }
+.fancy-scroll::-webkit-scrollbar-track
+  {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      background-color: #212529;
+  }
+
+.fancy-scroll::-webkit-scrollbar
+  {
+      width: 12px;
+      background-color: #212529;
+  }
+
+.fancy-scroll::-webkit-scrollbar-thumb
+  {
+      border-radius: 5px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: #ff013c;
+  }
+
+.fancy-scroll::-webkit-scrollbar-corner {
+      background: rgba(0,0,0,0);
+    }
 .link-container{
   width: 100%;
   margin-top: 10px;
@@ -123,6 +159,12 @@ export default {
   padding: 10px 15px;
   background-color: #ff013c;
   border-radius: 5px;
-  color: #fff;
+  color: #fff!important;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.links:hover {
+  text-decoration: underline;
+  background-color: #bf002d;
 }
 </style>
