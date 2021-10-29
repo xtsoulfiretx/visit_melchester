@@ -1,12 +1,12 @@
 <template>
   <div id="app">
   <div class="nav-container">
-    <router-link v-bind:to="'/'">Home</router-link>
-    <router-link v-bind:to="'/directory'">Business Directory</router-link>
-    <router-link v-bind:to="'/404'">Events</router-link>
-    <router-link v-bind:to="'/404'">Offers</router-link>
-    <router-link v-bind:to="'/404'">Blog</router-link>
-    <router-link class="last-link" v-bind:to="'/404'">Community</router-link>
+    <router-link class="mobile-link" v-bind:to="'/'">Home</router-link>
+    <router-link class="mobile-link" v-bind:to="'/directory'">Business Directory</router-link>
+    <router-link class="mobile-link" v-bind:to="'/404'">Events</router-link>
+    <router-link class="mobile-link" v-bind:to="'/404'">Offers</router-link>
+    <router-link class="mobile-link" v-bind:to="'/404'">Blog</router-link>
+    <router-link class="mobile-link last-link" v-bind:to="'/404'">Community</router-link>
   </div>
   <router-view></router-view>
   </div>
@@ -59,5 +59,10 @@ a:hover {
 }
 .last-link{
   margin-right: 2rem;
+}
+@media (max-width: 900px) {
+  .mobile-link {
+    font-size: .75rem;
+  }
 }
 </style>

@@ -58,7 +58,7 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 #Back {
   width: 100%;
@@ -166,5 +166,15 @@ export default {
 .links:hover {
   text-decoration: underline;
   background-color: #bf002d;
+}
+
+@media (max-width: 1024px) {
+  .list-container {
+    width: auto;
+  }
+  .item-description {
+    height: auto;
+    overflow-y: hidden;
+  }
 }
 </style>

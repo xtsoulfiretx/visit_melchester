@@ -131,6 +131,7 @@ export default {
   flex-wrap: wrap;
   background-color: #212529;
   justify-content: space-between;
+  padding: 2rem 1rem;
 }
 .offers-container {
   display: flex;
@@ -178,4 +179,46 @@ export default {
   text-decoration: underline;
 }
 
+@media (max-width: 900px){
+  .banner-header-text{
+      font-size: 3rem;
+    }
+}
+@media (max-width: 1024px) {
+   .homepage-secondary-text {
+    font-size: 1.5rem;
+  }
+  .offers-list-container {
+    flex-direction: column;
+    align-content: center;
+    padding: 2rem 0;
+  }
+  .offers-container {
+    width: 80%;
+    height: auto;
+    margin: 20px 0px;
+  }
+  .offer-banner-text {
+    font-size: 3rem;
+  }
+  .offers-image-container {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .offers-image {
+    background-repeat: no-repeat;
+    width: 350px;
+  }
+   .offers-description {
+    font-size: .75rem;
+    font-weight: 500;
+  }
+  .link-container-home {
+    padding: 5px 0;
+  }
+  .offer-description {
+    padding: 10px;
+  }
+}
 </style>

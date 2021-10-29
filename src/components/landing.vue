@@ -2,20 +2,26 @@
   <div id="landing">
     <div class="business-details">
       <div class="business-detail-container">
-        <div class="image-open">
+        <div class="image-open hide-on-small">
           <div class="detail-image-container">
             <img :src="details.mainImage" class="detail-image">
           </div>
-          <div class="opening-times-container">
-              <h4> {{ details.openingHours | stripHTML }} </h4>
+          <div class="description-container">
+            <h3> {{ details.body | stripHTML }} </h3>
           </div>
         </div>
         <div class="additional-info-container">
           <div class="business-name-container">
             <h1 class="business-name">{{ details.title }}</h1>
           </div>
-          <div class="description-container">
+          <div class="detail-image-container hide-on-large">
+            <img :src="details.mainImage" class="detail-image">
+          </div>
+          <div class="description-container hide-on-large">
             <h3> {{ details.body | stripHTML }} </h3>
+          </div>
+          <div class="opening-times-container">
+              <h4> {{ details.openingHours | stripHTML }} </h4>
           </div>
           <div class="get-in-touch">
             <h4>Get in touch: <br> Phone: {{ details.telephone }} <br> Email: {{ details.email }} <br> Website: {{ details.website }}</h4>
@@ -29,7 +35,6 @@
 
 <script>
 import axios from 'axios';
-
 export default {
   name: 'landing',
   data () {
@@ -110,7 +115,6 @@ export default {
 }
 .opening-times-container {
   width: 100%;
-  border-top: 3px solid #ff013c;
 }
 .backbtnL {
   display: block;
@@ -127,5 +131,41 @@ export default {
 }
 .links {
   color: #000;
+}
+@media (max-width: 1023px) {
+  .hide-on-small {
+    display: none;
+  }
+  .business-detail-container {
+    justify-content: center;
+    padding: 40px 0px;
+  }
+  .additional-info-container {
+    border: 3px solid #ff013c;
+    width: 80%;
+    flex-grow: 0;
+  }
+  .opening-times-container {
+    border: none;
+    width: 90%;
+    margin: auto;
+  }
+  .get-in-touch {
+    font-size: 1rem;
+  }
+  .description-container {
+    font-size: .8rem;
+  }
+}
+@media (min-width: 1024px) {
+  .hide-on-large {
+    display: none;
+  }
+  .opening-times-container {
+    font-size: 1.5rem;
+  }
+  .business-detail-container {
+    border-top: 3px solid #ff013c;
+  }
 }
 </style>
