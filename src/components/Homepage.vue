@@ -25,7 +25,7 @@
         <div class="offers-description-container">
           <h4 class="offers-description"> {{ offer.previewText | stripHTML }} </h4>
         </div>
-        <h4 class="link-container-home"><a href="/offers" class="links-home">View</a></h4>
+        <a href="/offers" class="links-home">View</a>
       </div>
     </div>
   </div>
@@ -163,20 +163,14 @@ export default {
 .offer-description {
   height: 240px;
 }
-.link-container-home {
-  width: 100%;
-  background-color: #ff013c;
-  margin: 0;
-  align-self: flex-end;
-}
 .links-home {
-  border-radius: 5px;
   color: #fff!important;
   font-size: 1.2rem;
   text-decoration: none;
+  background-color: #ff013c;
 }
-.links:hover {
-  text-decoration: underline;
+.links-home:hover {
+  background-color: #bf002d;
 }
 
 @media (max-width: 900px){

@@ -29,11 +29,6 @@ export default {
       list: []
     }
   },
-  // computed: {
-  //   cleanText: function() {
-  //     return JSON.parse(this.list.previewText)
-  //   }
-  // },
   mounted() {
   // GET request using axios with error handling
   axios.get("https://visit-melchester.destinationcoreone.com/businesses.json?token=BDFw4tCXJWiYslbVyzUdeOGDP5FBDL1t")
@@ -42,7 +37,6 @@ export default {
       this.errorMessage = error.message;
       console.error("There was an error!", error);
     });
-    // .cleanText()
   }
 }
 </script>
